@@ -1,0 +1,49 @@
+[user]
+    email = 6032823+jack1142@users.noreply.github.com
+    name = jack1142
+    signingkey = 95A9D6BCDE5C1283
+[credential "https://github.com"]
+    helper = 
+    helper = !/usr/bin/gh auth git-credential
+[commit]
+    gpgsign = true
+[core]
+    editor = subl -w
+    excludesfile = ~/.gitignore_global
+    quotepath = false
+    autocrlf = input
+[delta]
+    plus-style = "syntax #012800"
+    minus-style = "syntax #340001"
+    syntax-theme = Monokai Extended
+    line-numbers = true
+[interactive]
+    diffFilter = delta --color-only
+{{ if eq .chezmoi.os "windows" -}}
+[gpg]
+    program = C:\\Program Files (x86)\\GnuPG\\bin\\gpg.exe
+{{ end -}}
+[merge]
+    conflictstyle = diff3
+[mergetool]
+    keepBackup = false
+[diff]
+    algorithm = patience
+    colorMoved = default
+[alias]
+    s = status
+    d = diff
+    cb = createbranch
+    co = checkout
+    br = branch -v --sort=committerdate
+    last = log -1 HEAD
+    cane = commit --amend --no-edit
+    lo = log --oneline -n 10
+    copr = checkoutpr
+    cod = checkoutdefault
+[init]
+    defaultBranch = main
+[pull]
+    ff = only
+[sequence]
+    editor = interactive-rebase-tool
