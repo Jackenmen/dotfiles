@@ -23,10 +23,6 @@ defer = { value = 'zsh-defer source "{{ file }}"', each = true }
 [plugins.powerlevel10k]
 github = 'romkatv/powerlevel10k'
 
-[plugins.zsh-autocomplete]
-github = 'marlonrichert/zsh-autocomplete'
-apply = ["defer"]
-
 [plugins.zsh-autosuggestions]
 github = 'zsh-users/zsh-autosuggestions'
 apply = ["defer"]
