@@ -1,0 +1,26 @@
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+# Alias definitions.
+if [ -f ~/.shell_aliases ]; then
+    . ~/.shell_aliases
+fi
+
+# load rc files
+if [ -d ~/.shrc.d ]; then
+  for i in ~/.shrc.d/*.sh; do
+    . $i
+  done
+  unset i
+fi
+if [ -d ~/.zshrc.d ]; then
+  for i in ~/.zshrc.d/*; do
+    if [[ "$i" =~ ^.+\.z?sh$ && -r $i ]]; then
+      . $i
+    fi
+  done
+  unset i
+fi
