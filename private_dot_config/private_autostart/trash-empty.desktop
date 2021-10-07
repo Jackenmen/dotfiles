@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=trash-empty 5
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=Clean old trash
+Name=Clean old trash
+Comment[en_US]=
+Comment=
