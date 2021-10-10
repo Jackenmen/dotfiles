@@ -1,0 +1,2 @@
+[MASTER]
+init-hook="import contextlib, os, site, sys, sysconfig; to_remove = site.getsitepackages() + [site.getusersitepackages()]; sys.path = [p for p in sys.path if p not in to_remove]; sys.path.append(os.path.abspath(sysconfig.get_path('purelib', vars={'base': '.venv/'})))"
