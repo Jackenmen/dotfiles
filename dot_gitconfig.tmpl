@@ -2,9 +2,17 @@
     email = 6032823+jack1142@users.noreply.github.com
     name = jack1142
     signingkey = 95A9D6BCDE5C1283
+{{ if eq .chezmoi.os "linux" -}}
+[credential]
+    helper =
+    helper = /usr/bin/git-credential-manager-core
+    credentialStore = secretservice
+[credential "https://dev.azure.com"]
+    useHttpPath = true
 [credential "https://github.com"]
-    helper = 
+    helper =
     helper = !/usr/bin/gh auth git-credential
+{{ end -}}
 [commit]
     gpgsign = true
 [core]
