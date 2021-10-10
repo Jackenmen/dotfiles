@@ -1,0 +1,13 @@
+// Settings in here override those in "LSP-pylsp/LSP-pylsp.sublime-settings"
+
+{
+    "settings": {
+        "pylsp.configurationSources": ["flake8"],
+        "pylsp.plugins.pycodestyle.enabled": false,
+        "pylsp.plugins.pylint.enabled": true,
+        "pylsp.plugins.flake8.enabled": true,
+        "pylsp.plugins.pylsp_mypy.enabled": true,
+        "pylsp.plugins.autopep8.enabled": false,
+        "pylsp.plugins.pylsp_black.enabled": true,
+    },
+}

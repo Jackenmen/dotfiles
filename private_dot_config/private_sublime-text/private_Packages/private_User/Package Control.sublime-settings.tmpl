@@ -1,0 +1,44 @@
+{
+	{{- $file := joinPath .chezmoi.homeDir ".config/sublime-text/Packages/User/Package Control.sublime-settings" }}
+	{{- if stat $file }}
+	{{- output "sed" "-n" "s/\\(\"bootstrapped\": true\\)/\\1/p" $file | replace "\n" "" | replace "\t" "\n\t" }}
+	{{- end }}
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"AutoHotkey",
+		"Compare Side-By-Side",
+		"Debugger",
+		"Duplicate Lines",
+		"Expand Selection to Quotes",
+		"Expand Selection to Whitespace",
+		"FoldFunctions",
+		"GitGutter",
+		"GraphQL",
+		"INI",
+		"Jinja2",
+		"LSP",
+		"LSP-bash",
+		"LSP-css",
+		"LSP-html",
+		"LSP-json",
+		"LSP-pylsp",
+		"LSP-yaml",
+		"Man Page Support",
+		"MarkdownPreview",
+		"OverrideAudit",
+		"Package Control",
+		"PowerShell",
+		"Pretty JSON",
+		"rainbow_csv",
+		"RawLineEdit",
+		"sublack",
+		"SublimeLinter",
+		"SublimeLinter-annotations",
+		"Terminus",
+		"TOML",
+		"TypeScript",
+	],
+}
