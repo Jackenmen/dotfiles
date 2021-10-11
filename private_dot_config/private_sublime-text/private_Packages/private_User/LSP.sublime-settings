@@ -2,6 +2,8 @@
 {
     "show_code_lens": "phantom",
     "show_diagnostics_panel_on_save": 0,
+    "popup_max_characters_width": 80,
+    "popup_max_characters_height": 30,
     "clients": {
         "diagnostic-ls": {
             "enabled": true,
