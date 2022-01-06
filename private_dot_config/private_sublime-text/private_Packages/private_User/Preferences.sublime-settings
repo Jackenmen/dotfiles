@@ -12,4 +12,5 @@
 	"translate_tabs_to_spaces": true,
 	"word_wrap": true,
 	"color_scheme": "Mariana.sublime-color-scheme",
+	"fallback_encoding": "Central European (Windows 1250)",
 }
