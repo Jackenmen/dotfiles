@@ -1,0 +1,8 @@
+.include /etc/pulse/default.pa
+
+load-module module-null-sink sink_name=VirtualCableA sink_properties=device.description=VirtualCableA
+load-module module-loopback source=VirtualCableA.monitor latency_msec=1
+load-module module-null-sink sink_name=VirtualCableB sink_properties=device.description=VirtualCableB
+load-module module-loopback source=VirtualCableB.monitor latency_msec=1
+load-module module-null-sink sink_name=VirtualCableC sink_properties=device.description=VirtualCableC
+load-module module-loopback source=VirtualCableC.monitor latency_msec=1
