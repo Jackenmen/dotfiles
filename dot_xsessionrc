@@ -1,2 +1,6 @@
 export EDITOR='subl -w'
 export VISUAL="$EDITOR"
+{
+    sleep 5
+    xkbcomp -I$HOME/.config/xkb $HOME/.config/xkb/keymap/custom $DISPLAY
+} &
