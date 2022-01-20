@@ -13,7 +13,6 @@ alias l='ls -l'
 # exa does not support hyperlinks right now and I like that feature...
 #alias ls=exa --icons --git
 alias cat=bat
-alias python=py
 alias ssh="kitty +kitten ssh"
 alias rg="kitty +kitten hyperlinked_grep"
 
