@@ -65,6 +65,7 @@ application/x-zstd-compressed-tar=peazip.desktop
 application/x-zoo=peazip.desktop
 application/zip=peazip.desktop
 application/zstd=peazip.desktop
+x-scheme-handler/msteams=teams.desktop
 
 
 
