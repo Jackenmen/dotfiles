@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# .shutter/settings.xml hash: {{ include "dot_shutter/private_settings.xml.tmpl" | sha256sum }}
+cp "$HOME/.shutter/settings.xml" "$HOME/.shutter/profiles/*.xml"
