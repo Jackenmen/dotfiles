@@ -31,5 +31,9 @@ apply = ["defer"]
 github = "zsh-users/zsh-syntax-highlighting"
 apply = ["defer"]
 
+[plugins.zsh-edit]
+github = "marlonrichert/zsh-edit"
+apply = ["defer"]
+
 [plugins.compinit]
 inline = 'autoload -Uz compinit && zsh-defer compinit'
