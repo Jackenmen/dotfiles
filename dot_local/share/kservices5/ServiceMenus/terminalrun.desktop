@@ -1,0 +1,12 @@
+[Desktop Action run-in-terminal]
+Name=Run in terminal
+Icon=utilities-terminal
+TryExec=kitty
+Exec=kitty --single-instance --hold %f
+
+[Desktop Entry]
+Actions=run-in-terminal
+MimeType=application/x-executable;
+ServiceTypes=KonqPopupMenu/Plugin
+Type=Service
+X-KDE-Priority=TopLevel
