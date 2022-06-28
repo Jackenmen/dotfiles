@@ -5,7 +5,7 @@
 {{ if eq .chezmoi.os "linux" -}}
 [credential]
     helper =
-    helper = /usr/bin/git-credential-manager-core
+    helper = /usr/bin/env git-credential-manager-core
     credentialStore = secretservice
 [credential "https://dev.azure.com"]
     useHttpPath = true
@@ -55,3 +55,5 @@
     ff = only
 [sequence]
     editor = interactive-rebase-tool
+[credential "https://gitlab.com"]
+    provider = generic
