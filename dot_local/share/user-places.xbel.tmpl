@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xbel>
-<xbel xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info" xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks" xmlns:kdepriv="http://www.kde.org/kdepriv">
+<xbel xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks" xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info" xmlns:kdepriv="http://www.kde.org/kdepriv">
  <bookmark href="file:///">
   <title>root folder</title>
   <info>
@@ -145,17 +145,9 @@
    </metadata>
   </info>
  </bookmark>
- <info>
-  <metadata owner="http://www.kde.org">
-   <GroupState-Places-IsHidden>false</GroupState-Places-IsHidden>
-   <GroupState-Remote-IsHidden>false</GroupState-Remote-IsHidden>
-   <GroupState-Devices-IsHidden>false</GroupState-Devices-IsHidden>
-   <GroupState-RemovableDevices-IsHidden>false</GroupState-RemovableDevices-IsHidden>
-   <GroupState-Tags-IsHidden>false</GroupState-Tags-IsHidden>
-   <withRecentlyUsed>true</withRecentlyUsed>
-   <GroupState-RecentlySaved-IsHidden>true</GroupState-RecentlySaved-IsHidden>
-   <withBaloo>true</withBaloo>
-   <GroupState-SearchFor-IsHidden>true</GroupState-SearchFor-IsHidden>
-  </metadata>
- </info>
+{{ $file := joinPath .chezmoi.homeDir ".local/share/user-places.xbel" -}}
+{{- if stat $file -}}
+{{ output "sed" "-n" "/^ <info>$/,$p" $file }}
+{{- else -}}
 </xbel>
+{{ end -}}
