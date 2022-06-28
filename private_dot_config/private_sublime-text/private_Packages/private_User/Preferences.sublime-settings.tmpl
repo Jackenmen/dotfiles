@@ -1,7 +1,12 @@
+{{- $chassisType = (output "hostnamectl" "--json=short" | mustFromJson).Chassis }}
 {
 	"default_line_ending": "unix",
 	"font_face": "Inconsolata",
+	{{- if eq $chassisType "desktop" }}
 	"font_size": 14,
+	{{- else }}
+	"font_size": 12,
+	{{- end }}
 	"ignored_packages":
 	[
 		"Vintage",
