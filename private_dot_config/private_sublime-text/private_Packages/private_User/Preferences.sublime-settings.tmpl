@@ -1,4 +1,4 @@
-{{- $chassisType = (output "hostnamectl" "--json=short" | mustFromJson).Chassis }}
+{{- $chassisType := (output "hostnamectl" "--json=short" | mustFromJson).Chassis }}
 {
 	"default_line_ending": "unix",
 	"font_face": "Inconsolata",
