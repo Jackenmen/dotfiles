@@ -21,3 +21,6 @@ PATH="$HOME/.local/bin:$PATH"
 PATH="$HOME/.cargo/bin:$PATH"
 PATH="$HOME/.npm-packages/bin:$PATH"
 PATH="$HOME/little-helpers/bin:$PATH"
+
+# set custom default ripgrep configuration
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
