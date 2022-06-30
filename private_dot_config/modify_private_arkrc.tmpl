@@ -1,0 +1,11 @@
+#!/bin/bash
+TO_ADD='
+{
+    "Extraction": {
+        "closeAfterExtraction": "true",
+        "openDestinationFolderAfterExtraction": "true"
+    }
+}
+'
+{{ joinPath .chezmoi.sourceDir "lib/modify_ini_file.py" }} "$TO_ADD"
+

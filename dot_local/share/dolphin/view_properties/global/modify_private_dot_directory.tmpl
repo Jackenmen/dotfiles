@@ -1,0 +1,9 @@
+#!/bin/bash
+TO_ADD='
+{
+    "Settings": {
+        "HiddenFilesShown": "true"
+    }
+}
+'
+{{ joinPath .chezmoi.sourceDir "lib/modify_ini_file.py" }} "$TO_ADD"

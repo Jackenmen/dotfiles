@@ -1,0 +1,9 @@
+#!/bin/bash
+TO_ADD='
+{
+    "General": {
+        "TerminalApplication": "kitty --single-instance"
+    }
+}
+'
+{{ joinPath .chezmoi.sourceDir "lib/modify_ini_file.py" }} "$TO_ADD"
