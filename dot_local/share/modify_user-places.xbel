@@ -1,6 +1,38 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE xbel>
-<xbel xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks" xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info" xmlns:kdepriv="http://www.kde.org/kdepriv">
+#!/usr/bin/env python3
+
+import os
+import sys
+
+from lxml import etree, html
+
+
+HOME = os.path.expanduser("~")
+
+DOCTYPE = '<?xml version="1.0" encoding="UTF-8"?>\n<!DOCTYPE xbel>'
+XBEL_ROOT = (
+    '<xbel xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"'
+    ' xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"'
+    ' xmlns:kdepriv="http://www.kde.org/kdepriv">'
+)
+BASE = f"""{DOCTYPE}
+{XBEL_ROOT}
+ <info>
+  <metadata owner="http://www.kde.org">
+   <GroupState-Places-IsHidden>false</GroupState-Places-IsHidden>
+   <GroupState-Remote-IsHidden>false</GroupState-Remote-IsHidden>
+   <GroupState-Devices-IsHidden>false</GroupState-Devices-IsHidden>
+   <GroupState-RemovableDevices-IsHidden>false</GroupState-RemovableDevices-IsHidden>
+   <GroupState-Tags-IsHidden>false</GroupState-Tags-IsHidden>
+   <withRecentlyUsed>true</withRecentlyUsed>
+   <GroupState-RecentlySaved-IsHidden>true</GroupState-RecentlySaved-IsHidden>
+   <withBaloo>true</withBaloo>
+   <GroupState-SearchFor-IsHidden>true</GroupState-SearchFor-IsHidden>
+  </metadata>
+ </info>
+</xbel>"""
+BOOKMARKS = list(
+    etree.fromstring(
+        f"""{XBEL_ROOT}
  <bookmark href="file:///">
   <title>root folder</title>
   <info>
@@ -15,7 +47,7 @@
    </metadata>
   </info>
  </bookmark>
- <bookmark href="file://{{ .chezmoi.homeDir }}">
+ <bookmark href="file://{HOME}">
   <title>Home</title>
   <info>
    <metadata owner="http://freedesktop.org">
@@ -28,7 +60,7 @@
    </metadata>
   </info>
  </bookmark>
- <bookmark href="file://{{ .chezmoi.homeDir }}/work">
+ <bookmark href="file://{HOME}/work">
   <title>work</title>
   <info>
    <metadata owner="http://freedesktop.org">
@@ -41,7 +73,7 @@
    </metadata>
   </info>
  </bookmark>
- <bookmark href="file://{{ .chezmoi.homeDir }}/Desktop">
+ <bookmark href="file://{HOME}/Desktop">
   <title>Desktop</title>
   <info>
    <metadata owner="http://freedesktop.org">
@@ -54,7 +86,7 @@
    </metadata>
   </info>
  </bookmark>
- <bookmark href="file://{{ .chezmoi.homeDir }}/Documents">
+ <bookmark href="file://{HOME}/Documents">
   <title>Documents</title>
   <info>
    <metadata owner="http://freedesktop.org">
@@ -67,7 +99,7 @@
    </metadata>
   </info>
  </bookmark>
- <bookmark href="file://{{ .chezmoi.homeDir }}/Downloads">
+ <bookmark href="file://{HOME}/Downloads">
   <title>Downloads</title>
   <info>
    <metadata owner="http://freedesktop.org">
@@ -80,7 +112,7 @@
    </metadata>
   </info>
  </bookmark>
- <bookmark href="file://{{ .chezmoi.homeDir }}/Music">
+ <bookmark href="file://{HOME}/Music">
   <title>Music</title>
   <info>
    <metadata owner="http://freedesktop.org">
@@ -93,7 +125,7 @@
    </metadata>
   </info>
  </bookmark>
- <bookmark href="file://{{ .chezmoi.homeDir }}/Pictures">
+ <bookmark href="file://{HOME}/Pictures">
   <title>Pictures</title>
   <info>
    <metadata owner="http://freedesktop.org">
@@ -106,7 +138,7 @@
    </metadata>
   </info>
  </bookmark>
- <bookmark href="file://{{ .chezmoi.homeDir }}/Videos">
+ <bookmark href="file://{HOME}/Videos">
   <title>Videos</title>
   <info>
    <metadata owner="http://freedesktop.org">
@@ -145,9 +177,32 @@
    </metadata>
   </info>
  </bookmark>
-{{ $file := joinPath .chezmoi.homeDir ".local/share/user-places.xbel" -}}
-{{- if stat $file -}}
-{{ output "sed" "-n" "/^ <info>$/,$p" $file }}
-{{- else -}}
 </xbel>
-{{ end -}}
+"""
+    )
+)
+
+
+def set_element_text(key: str, value: str) -> None:
+    node = metadata_node.find(key)
+    if node is not None:
+        node.text = value
+    else:
+        el = metadata_node.makeelement(key)
+        el.text = value
+        el.tail = metadata_node[-1].tail
+        metadata_node[-1].tail = metadata_node[-2].tail
+        metadata_node.append(el)
+
+
+contents = sys.stdin.read() or BASE
+root = etree.fromstring(contents.encode())
+metadata_node = root.xpath("info/metadata")[0]
+
+for bookmark in root.iterfind("bookmark"):
+    root.remove(bookmark)
+set_element_text("GroupState-RecentlySaved-IsHidden", "true")
+set_element_text("GroupState-SearchFor-IsHidden", "true")
+root.extend(BOOKMARKS)
+
+print(etree.tostring(root, doctype=DOCTYPE).decode())
