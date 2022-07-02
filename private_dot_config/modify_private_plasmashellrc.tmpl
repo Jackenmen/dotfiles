@@ -1,0 +1,18 @@
+#!/bin/bash
+TO_ADD='
+{
+    "[PlasmaViews][Panel 49][Defaults]": {
+        "thickness": "44"
+    },
+    "[PlasmaViews][Panel 49][Horizontal1920]": {
+        "thickness": "44"
+    },
+    "[PlasmaViews][Panel 71][Defaults]": {
+        "thickness": "44"
+    },
+    "[PlasmaViews][Panel 71][Horizontal1920]": {
+        "thickness": "44"
+    }
+}
+'
+{{ joinPath .chezmoi.sourceDir "lib/modify_ini_file.py" }} "$TO_ADD"
