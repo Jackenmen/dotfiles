@@ -1,8 +1,4 @@
 {
-	{{- $file := joinPath .chezmoi.homeDir ".config/sublime-text/Packages/User/Package Control.sublime-settings" }}
-	{{- if stat $file }}
-	{{- output "sed" "-n" "s/\\(\"bootstrapped\": true\\)/\\1/p" $file | replace "\n" "" | replace "\t" "\n\t" }}
-	{{- end }}
 	"in_process_packages":
 	[
 	],
@@ -41,4 +37,8 @@
 		"TOML",
 		"TypeScript",
 	],
+	{{- $file := joinPath .chezmoi.homeDir ".config/sublime-text/Packages/User/Package Control.sublime-settings" }}
+	{{- if stat $file }}
+	{{- output "sed" "-n" "s/\\(\"bootstrapped\": true\\)/\\1/p" $file | replace "\n" "" | replace "\t" "\n\t" }}
+	{{- end }}
 }
