@@ -1,0 +1,24 @@
+#!/bin/bash
+TO_ADD='
+{
+    "[Application]": {
+        "ApplicationStyle": "Breeze",
+        "AutoCopyToClipboardNewCaptures": "true",
+        "AutoHideDocks": "false",
+        "AutoHideTabs": "true",
+        "AutoSaveNewCaptures": "true",
+        "SaveDirectory": "{{ .chezmoi.homeDir }}/Pictures/Screenshots/$Y-$M",
+        "SaveFilename": "$Y-$M-$D_$h-$m-$s",
+        "StartMinimizedToTray": "true",
+        "TrayIconDefaultActionMode": "1"
+    },
+    "[ImageGrabber]": {
+        "CaptureCursor": "false"
+    },
+    "[MainWindow]": {
+        "ToolColor_8": "@Variant(\\0\\0\\0\\x43\\x1\\xff\\xff\\xff\\xff\\0\\0\\0\\0\\0\\0)",
+        "ToolFillType_8": "0"
+    }
+}
+'
+{{ joinPath .chezmoi.sourceDir "lib/modify_ini_file.py" }} "$TO_ADD"

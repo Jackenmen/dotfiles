@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=ksnip
+Comment=Cross-platform screenshot tool that provides many annotation features for your screenshots.
+Terminal=false
+Type=Application
+Categories=Utility;
+Icon=ksnip
+Exec=ksnip
+StartupNotify=false
+X-KDE-DBUS-Restricted-Interfaces=org.kde.kwin.Screenshot,org.kde.KWin.ScreenShot2
