@@ -29,5 +29,6 @@ general_node.attrib["last_profile_name"] = "default"
 general_node.attrib["filename"] = "$nb_name_%Y-%m-%d_%H-%M-%S"
 general_node.attrib["filetype"] = "0"
 general_node.attrib["folder"] = f"{HOME}/Pictures/Screenshots"
+general_node.attrib["quality"] = "9"
 
 print(etree.tostring(root).decode().replace("/>", " />"))
