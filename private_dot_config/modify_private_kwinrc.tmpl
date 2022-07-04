@@ -1,0 +1,48 @@
+#!/bin/bash
+TO_ADD='
+{
+    "[Effect-kwin4_effect_translucency]": {
+        "MoveResize": "61"
+    },
+    "[ElectricBorders]": {
+        "Bottom": "None",
+        "BottomLeft": "None",
+        "BottomRight": "None",
+        "Left": "None",
+        "Right": "None",
+        "Top": "None",
+        "TopLeft": "None",
+        "TopRight": "None"
+    },
+    "[MouseBindings]": {
+        "CommandActiveTitlebar1": "Raise",
+        "CommandActiveTitlebar2": "Nothing",
+        "CommandActiveTitlebar3": "Operations menu",
+        "CommandAll1": "Move",
+        "CommandAll2": "Toggle raise and lower",
+        "CommandAll3": "Resize",
+        "CommandAllKey": "Meta",
+        "CommandAllWheel": "Nothing",
+        "CommandInactiveTitlebar1": "Activate and raise",
+        "CommandInactiveTitlebar2": "Nothing",
+        "CommandInactiveTitlebar3": "Operations menu",
+        "CommandTitlebarWheel": "Shade/Unshade",
+        "CommandWindow1": "Activate, raise and pass click",
+        "CommandWindow2": "Activate and pass click",
+        "CommandWindow3": "Activate and pass click",
+        "CommandWindowWheel": "Scroll"
+    },
+    "[NightColor]": {
+        "Active": "true",
+        "LatitudeAuto": "54.4994",
+        "LongitudeAuto": "18.551"
+    },
+    "[Plugins]": {
+        "kwin4_effect_translucencyEnabled": "true"
+    },
+    "[org.kde.kdecoration2]": {
+        "ButtonsOnRight": "HFIAX"
+    }
+}
+'
+{{ joinPath .chezmoi.sourceDir "lib/modify_ini_file.py" }} "$TO_ADD"
