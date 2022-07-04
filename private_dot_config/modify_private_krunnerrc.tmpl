@@ -1,0 +1,25 @@
+#!/bin/bash
+TO_ADD='
+{
+    "[Plugins]": {
+        "CharacterRunnerEnabled": "false",
+        "appstreamEnabled": "false",
+        "baloosearchEnabled": "false",
+        "bookmarksEnabled": "false",
+        "browserhistoryEnabled": "false",
+        "browsertabsEnabled": "false",
+        "desktopsessionsEnabled": "false",
+        "katesessionsEnabled": "false",
+        "konsoleprofilesEnabled": "false",
+        "kwinEnabled": "false",
+        "locationsEnabled": "false",
+        "org.kde.activities2Enabled": "false",
+        "org.kde.datetimeEnabled": "false",
+        "org.kde.windowedwidgetsEnabled": "false",
+        "recentdocumentsEnabled": "false",
+        "webshortcutsEnabled": "false",
+        "windowsEnabled": "false"
+    }
+}
+'
+{{ joinPath .chezmoi.sourceDir "lib/modify_ini_file.py" }} "$TO_ADD"
