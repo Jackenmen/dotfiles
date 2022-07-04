@@ -8,7 +8,7 @@ This can be used from chezmoi's modify_*.tmpl scripts as follows:
 #!/bin/bash
 TO_ADD='
 {
-    "SECTION NAME": {
+    "[SECTION NAME]": {
         "KEY": "NEW VALUE"
     }
 }
@@ -23,7 +23,7 @@ import sys
 SECTIONS_TO_MODIFY = json.loads(sys.argv[1])
 
 section_name_pattern = "|".join(re.escape(name) for name in SECTIONS_TO_MODIFY)
-SECTION_PATTERN_RE = re.compile(rf"\[({section_name_pattern})\]\n[\s\S]*?\n(?=\n|$)")
+SECTION_PATTERN_RE = re.compile(rf"({section_name_pattern})\n[\s\S]*?\n(?=\n|$)")
 
 original_contents = sys.stdin.read()
 FOUND_SECTIONS = set()
@@ -52,15 +52,19 @@ def repl(match: re.Match[str]) -> str:
 
 if original_contents:
     lines = SECTION_PATTERN_RE.sub(repl, original_contents).splitlines(keepends=True)
+    lines.append("\n")
 else:
     lines = []
 
 for section_name, to_add in SECTIONS_TO_MODIFY.items():
     if section_name in FOUND_SECTIONS:
         continue
-    lines.append(f"[{section_name}]\n")
+    lines.append(f"{section_name}\n")
     for key, value in to_add.items():
         lines.append(f"{key}={value}\n")
     lines.append("\n")
-lines.pop()
+try:
+    lines.pop()
+except IndexError:
+    pass
 print("".join(lines), end="")
