@@ -23,6 +23,7 @@ with ExitStack() as stack:
         contents = fp.read()
 root = etree.fromstring(contents)
 general_node = root.find("general")
+general_node.attrib["autofs"] = "1"
 general_node.attrib["autofs_min"] = "1"
 general_node.attrib["last_profile_name"] = "default"
 general_node.attrib["filename"] = "$nb_name_%Y-%m-%d_%H-%M-%S"
