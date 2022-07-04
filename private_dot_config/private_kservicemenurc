@@ -1,4 +1,6 @@
 [Show]
+AppImageExecutable=true
+AppImageUpdate=true
 ChangeCustom=true
 ChangePerm=true
 ChangeRoot=true
@@ -33,11 +35,13 @@ openTerminalHere=false
 plasmavaultfileitemaction=true
 run-in-terminal=true
 runInKonsole=false
+setAsWallpaper=true
 sharefileitemaction=true
 showmd5=true
 showsha1=true
 showsha256=true
 showsha512=true
 slideshow=true
+slideshowfileitemaction=true
 smb2rdc=true
 tagsfileitemaction=true

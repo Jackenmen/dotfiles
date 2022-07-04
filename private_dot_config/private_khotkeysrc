@@ -1140,6 +1140,7 @@ Uuid={139a067b-3215-43cd-ab3c-e66aa3730776}
 BrowserApplication[$d]
 ColorScheme[$d]
 ColorSchemeHash[$d]
+TerminalApplication[$d]
 XftAntialias[$d]
 XftHintStyle[$d]
 XftSubPixel[$d]
