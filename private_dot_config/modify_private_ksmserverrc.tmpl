@@ -1,0 +1,9 @@
+#!/bin/bash
+TO_ADD='
+{
+    "[General]": {
+        "loginMode": "emptySession"
+    }
+}
+'
+{{ joinPath .chezmoi.sourceDir "lib/modify_ini_file.py" }} "$TO_ADD"
