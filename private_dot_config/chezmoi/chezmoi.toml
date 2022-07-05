@@ -1,3 +1,2 @@
 [diff]
-pager = "delta"
-args = ["--color-only"]
+pager = "delta --color-only"
