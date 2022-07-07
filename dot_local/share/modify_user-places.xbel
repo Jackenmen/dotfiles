@@ -177,6 +177,17 @@ BOOKMARKS = list(
    </metadata>
   </info>
  </bookmark>
+ <bookmark href="">
+  <title>Project Folder</title>
+  <info>
+   <metadata owner="http://freedesktop.org">
+    <bookmark:icon name="folder-favorites"/>
+   </metadata>
+   <metadata owner="http://www.kde.org">
+    <OnlyInApp>kdenlive</OnlyInApp>
+   </metadata>
+  </info>
+ </bookmark>
 </xbel>
 """
     )
@@ -198,11 +209,17 @@ def set_element_text(key: str, value: str) -> None:
 contents = sys.stdin.read() or BASE
 root = etree.fromstring(contents.encode())
 metadata_node = root.xpath("info/metadata")[0]
+first_bookmark_idx = root.index(metadata_node.getparent()) + 1
 
 for bookmark in root.iterfind("bookmark"):
     root.remove(bookmark)
 set_element_text("GroupState-RecentlySaved-IsHidden", "true")
 set_element_text("GroupState-SearchFor-IsHidden", "true")
-root.extend(BOOKMARKS)
+for bookmark in reversed(BOOKMARKS):
+    root.insert(first_bookmark_idx, bookmark)
+
+if root[-1] is not BOOKMARKS[-1]:
+    BOOKMARKS[-1].tail = "\n "
+    root[-1].tail = "\n"
 
 print(etree.tostring(root, doctype=DOCTYPE).decode())
