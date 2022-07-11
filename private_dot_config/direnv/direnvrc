@@ -1,0 +1,48 @@
+layout_python() {
+    local requested_version="$1"
+    if [[ -z $requested_version ]]; then
+        log_error "Python's version hasn't been provided."
+        return 1
+    fi
+    shift
+
+    local detected_version=""
+    local venv="$PWD/.venv"
+    local relative_virtual_env=".venvs/$requested_version"
+    local virtual_env="$PWD/$relative_virtual_env"
+
+    if [[ -d $venv ]]; then
+        # this needs to be split for `set -e` to actually trigger on error
+        local python_version_output=$("$venv/bin/python" --version)
+        local detected_version=$(echo "$python_version_output" | cut -d' ' -f2 | cut -d. -f1,2)
+
+        # if not symlink, try moving it to $virtual_env dir and symlinking
+        if [[ ! -L $venv ]]; then
+            log_error "$venv already exists, unable to proceed without data loss."
+            # I wanted to move a virtual environment automatically
+            # but moving venvs is problematic due to absolute paths in maaany locations.
+            log_error "Manual recreation of virtual environment in proper path ($virtual_env) is recommended."
+            return 1
+        fi
+    elif [[ -e $venv ]]; then
+        log_error "$venv is not a directory, unable to proceed without data loss."
+        return 1
+    fi
+
+    if [[ ! -d $virtual_env ]]; then
+        local prompt="$(basename $PWD)-$requested_version"
+        virtualenv --prompt="$prompt" --python="$requested_version" "$@" "$virtual_env"
+    fi
+
+    if [[ "$detected_version" != "$requested_version" ]]; then
+        if [[ -L $venv ]]; then
+            rm "$venv"
+        fi
+        ln -s "$relative_virtual_env" "$venv"
+    fi
+
+    source "$virtual_env/bin/activate"
+    # powerlevel10k inspects VIRTUAL_ENV_PROMPT env var to decide the prompt to use
+    export VIRTUAL_ENV_PROMPT="${PS1%$_OLD_VIRTUAL_PS1}"
+    unset PS1
+}

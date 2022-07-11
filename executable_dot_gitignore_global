@@ -1,2 +1,12 @@
+# Sublime Text project files
 *.sublime-project
 *.sublime-workspace
+
+# virtual environment directories
+venv/
+venvs/
+.venv/
+.venvs/
+
+# direnv configuration
+.envrc
