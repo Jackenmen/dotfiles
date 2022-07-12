@@ -5,7 +5,7 @@
 # virtual environment directories
 venv/
 venvs/
-.venv/
+.venv
 .venvs/
 
 # direnv configuration
