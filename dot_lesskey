@@ -1,0 +1,2 @@
+#env
+LESS = -RF --redraw-on-quit

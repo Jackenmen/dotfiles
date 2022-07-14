@@ -27,6 +27,3 @@ export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
 # allow Steam to be closed to tray
 export STEAM_FRAME_FORCE_CLOSE=1
-
-# set custom pager parameters for programs such as bat
-export PAGER='less -RFX'
