@@ -1,7 +1,37 @@
 #!/bin/bash
 TO_ADD='
 {
+    "[Actions]": {
+        "1\\CaptureDelay": "0",
+        "1\\CaptureMode": "0",
+        "1\\IncludeCursor": "false",
+        "1\\IsCaptureEnabled": "false",
+        "1\\IsCopyToClipboardEnabled": "true",
+        "1\\IsGlobalShortcutString": "false",
+        "1\\IsHideMainWindowEnabled": "true",
+        "1\\IsOpenDirectoryEnabled": "false",
+        "1\\IsPinImageEnabled": "false",
+        "1\\IsSaveEnabled": "true",
+        "1\\IsUploadEnabled": "false",
+        "1\\Name": "Save and hide main window",
+        "1\\Shortcut": "Return",
+        "2\\CaptureDelay": "0",
+        "2\\CaptureMode": "0",
+        "2\\IncludeCursor": "false",
+        "2\\IsCaptureEnabled": "false",
+        "2\\IsCopyToClipboardEnabled": "false",
+        "2\\IsGlobalShortcutString": "false",
+        "2\\IsHideMainWindowEnabled": "true",
+        "2\\IsOpenDirectoryEnabled": "false",
+        "2\\IsPinImageEnabled": "false",
+        "2\\IsSaveEnabled": "false",
+        "2\\IsUploadEnabled": "false",
+        "2\\Name": "Hide main window",
+        "2\\Shortcut": "Esc",
+        "size": "2"
+    },
     "[Application]": {
+        "AllowResizingRectSelection": "true",
         "ApplicationStyle": "Breeze",
         "AutoCopyToClipboardNewCaptures": "true",
         "AutoHideDocks": "false",
@@ -10,7 +40,11 @@ TO_ADD='
         "SaveDirectory": "{{ .chezmoi.homeDir }}/Pictures/Screenshots/$Y-$M",
         "SaveFilename": "$Y-$M-$D_$h-$m-$s",
         "StartMinimizedToTray": "true",
-        "TrayIconDefaultActionMode": "1"
+        "TrayIconDefaultActionMode": "1",
+        "UseTabs": "false"
+    },
+    "[HotKeys]": {
+        "GlobalHotKeysEnabled": "false"
     },
     "[ImageGrabber]": {
         "CaptureCursor": "false"
