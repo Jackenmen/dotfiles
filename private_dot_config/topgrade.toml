@@ -61,6 +61,7 @@ disable = ["chezmoi", "pipx", "pip3"]
 # Custom commands
 [commands]
 "pipx" = "sudo pipx upgrade-all"
+"virtualenv-embed-wheels" = "virtualenv --upgrade-embed-wheels"
 
 [brew]
 #greedy_cask = true
