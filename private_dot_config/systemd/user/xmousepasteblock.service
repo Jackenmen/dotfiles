@@ -1,8 +1,0 @@
-[Unit]
-Description=Clear primary X selection on detection to disable MMB paste on Xorg
-
-[Service]
-ExecStart=/nix/var/nix/profiles/default/bin/xmousepasteblock
-
-[Install]
-WantedBy=default.target

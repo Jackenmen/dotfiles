@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=XMousePasteBlock
+Comment=Clear primary X selection on detection to disable MMB paste on Xorg
+Exec=/nix/var/nix/profiles/default/bin/xmousepasteblock
+Type=Application
+Terminal=false
+X-GNOME-Autostart-enabled=true
