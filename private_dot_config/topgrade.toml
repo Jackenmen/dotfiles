@@ -2,7 +2,7 @@
 #assume_yes = true
 
 # Disable specific steps - same options as the command line flag
-disable = ["chezmoi", "pipx", "pip3"]
+disable = ["chezmoi", "nix", "pipx", "pip3"]
 
 # Ignore failures for these steps
 #ignore_failures = ["powershell"]
@@ -60,6 +60,7 @@ disable = ["chezmoi", "pipx", "pip3"]
 
 # Custom commands
 [commands]
+"nix" = "sudo nix-channel --update && sudo nix-env --upgrade"
 "pipx" = "sudo pipx upgrade-all"
 "virtualenv-embed-wheels" = "virtualenv --upgrade-embed-wheels"
 
