@@ -10,6 +10,7 @@ layout_python() {
     local venv="$PWD/.venv"
     local relative_virtual_env=".venvs/$requested_version"
     local virtual_env="$PWD/$relative_virtual_env"
+    local gitignore="$PWD/.venvs/.gitignore"
 
     if [[ -d $venv ]]; then
         # this needs to be split for `set -e` to actually trigger on error
@@ -30,6 +31,9 @@ layout_python() {
     fi
 
     if [[ ! -d $virtual_env ]]; then
+        if [[ ! -f $gitignore ]]; then
+            echo $'# created by direnv\'s layout python automatically\n*' > "$gitignore"
+        fi
         local prompt="$(basename $PWD)-$requested_version"
         virtualenv --prompt="$prompt" --python="$requested_version" "$@" "$virtual_env"
     fi
