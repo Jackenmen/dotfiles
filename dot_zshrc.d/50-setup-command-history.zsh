@@ -2,9 +2,12 @@
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE
 
-# append to the history file, don't overwrite it
-setopt APPEND_HISTORY
+# add timestamps
+setopt EXTENDED_HISTORY
 
-HISTFILE=~/.bash_history
+# append to the history file (immediately, not on shell exit), don't overwrite it
+setopt INC_APPEND_HISTORY
+
+HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=100000
