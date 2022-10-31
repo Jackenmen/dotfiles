@@ -1,2 +1,2 @@
 #env
-LESS = -RF --redraw-on-quit
+LESS = -RF --redraw-on-quit --incsearch
