@@ -1,0 +1,7 @@
+// Settings in here override those in "LSP-bash/LSP-bash.sublime-settings"
+
+{
+    "env": {
+        "SHELLCHECK_PATH": "shellcheck",
+    }
+}
