@@ -5,7 +5,7 @@
 {{ if eq .chezmoi.os "linux" -}}
 [credential]
     helper =
-    helper = /usr/bin/env git-credential-manager-core
+    helper = /usr/bin/env git-credential-manager
     credentialStore = secretservice
 [credential "https://dev.azure.com"]
     useHttpPath = true
