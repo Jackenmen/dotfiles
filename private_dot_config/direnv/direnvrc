@@ -31,11 +31,11 @@ layout_python() {
     fi
 
     if [[ ! -d $virtual_env ]]; then
+        local prompt="$(basename $PWD)-$requested_version"
+        virtualenv --prompt="$prompt" --python="$requested_version" "$@" "$virtual_env"
         if [[ ! -f $gitignore ]]; then
             echo $'# created by direnv\'s layout python automatically\n*' > "$gitignore"
         fi
-        local prompt="$(basename $PWD)-$requested_version"
-        virtualenv --prompt="$prompt" --python="$requested_version" "$@" "$virtual_env"
     fi
 
     if [[ "$detected_version" != "$requested_version" ]]; then
