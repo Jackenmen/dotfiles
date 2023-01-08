@@ -2,6 +2,9 @@
 *.sublime-project
 *.sublime-workspace
 
+# Visual Studio Code files
+.vscode/
+
 # virtual environment directories
 venv/
 venvs/
