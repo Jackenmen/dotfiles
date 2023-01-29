@@ -1,6 +1,6 @@
 [Appearance]
 ColorScheme=Argonaut
-Font=Hack,11,-1,7,50,0,0,0,0,0
+Font=SauceCodePro Nerd Font Mono,11,-1,5,50,0,0,0,0,0
 
 [Cursor Options]
 CustomCursorColor=255,0,24
@@ -10,8 +10,12 @@ UseCustomCursorColor=true
 Name=Default Profile
 Parent=FALLBACK/
 
+[Interaction Options]
+AllowEscapedLinks=true
+
 [Scrolling]
 HistorySize=2000
 
 [Terminal Features]
 BlinkingCursorEnabled=true
+UrlHintsModifiers=100663296
