@@ -212,6 +212,8 @@ metadata_node = root.xpath("info/metadata")[0]
 first_bookmark_idx = root.index(metadata_node.getparent()) + 1
 
 for bookmark in root.iterfind("bookmark"):
+    if bookmark.attrib["href"].startswith("kdeconnect://"):
+        continue
     root.remove(bookmark)
 set_element_text("GroupState-RecentlySaved-IsHidden", "true")
 set_element_text("GroupState-SearchFor-IsHidden", "true")
