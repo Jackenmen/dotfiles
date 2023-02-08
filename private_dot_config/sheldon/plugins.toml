@@ -37,6 +37,7 @@ apply = ["defer"]
 
 [plugins.zsh-tab-title]
 github = "trystan2k/zsh-tab-title"
+profiles = ["not-kitty"]
 
 [plugins.compinit]
 inline = 'autoload -Uz compinit && zsh-defer compinit'
