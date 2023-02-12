@@ -33,7 +33,6 @@ apply = ["defer"]
 
 [plugins.zsh-edit]
 github = "marlonrichert/zsh-edit"
-apply = ["defer"]
 
 [plugins.zsh-tab-title]
 github = "trystan2k/zsh-tab-title"
