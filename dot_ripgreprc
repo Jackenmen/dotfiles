@@ -2,6 +2,7 @@
 -.
 --glob=!.git/
 --glob=!.yarn/
+--max-columns=1500
 
 # I am *never* interested in results from po files and I get them all the time...
 --type-not=po
