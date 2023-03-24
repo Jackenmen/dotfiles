@@ -1,6 +1,7 @@
 # I want to search in hidden files/folders if they're not gitignored.
 -.
 --glob=!.git/
+--glob=!.yarn/
 
 # I am *never* interested in results from po files and I get them all the time...
 --type-not=po
