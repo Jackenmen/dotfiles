@@ -1,3 +1,11 @@
 xkb_symbols "local" {
     key <SPCE> { [space, space, U200B, U200B] };
+    key <AE02> { [2, at, twosuperior, onehalf] };
+    key <AE03> { [3, numbersign, threesuperior, onethird] };
+    key <AE04> { [4, dollar, cent, onequarter] };
+    key <AE06> { [6, asciicircum, U2191, U0302] };
+    key <AD05> { [t, T, U2122, U2122] };
+    key <AB04> { [v, V, U2193, U030C] };
+    key <AB08> { [comma, less, U2190, lessthanequal] };
+    key <AB09> { [period, greater, U2192, greaterthanequal] };
 };
