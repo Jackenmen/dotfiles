@@ -1,0 +1,53 @@
+# == Blocks ==
+# This specifies the columns and their order when using the long and the tree
+# layout.
+# Possible values: permission, user, group, context, size, date, name, inode, links, git
+blocks:
+  - permission
+  - user
+  - size
+  - date
+  - git
+  - name
+
+# == Date ==
+# This specifies the date format for the date column. The freeform format
+# accepts a strftime like string.
+# When "classic" is set, this is set to "date".
+# Possible values: date, relative, '+<date_format>'
+# `date_format` will be a `strftime` formatted value. e.g. `date: '+%d %b %y %X'` will give you a date like this: 17 Jun 21 20:14:55
+date: relative
+
+# == Ignore Globs ==
+# A list of globs to ignore when listing.
+ignore-globs:
+  - .
+  - ..
+  - .git
+
+# == Indicators ==
+# Whether to add indicator characters to certain listed files.
+# Possible values: false, true
+indicators: true
+
+# == Size ==
+# Specifies the format of the size column.
+# Possible values: default, short, bytes
+size: short
+
+# == Permission ==
+# Specify the format of the permission column
+# Possible value: rwx, octal
+permission: octal
+
+# == Sorting ==
+sorting:
+  # Whether to group directories together and where.
+  # When "classic" is set, this is set to "none".
+  # Possible values: first, last, none
+  dir-grouping: first
+
+# == Hyperlink ==
+# Attach hyperlink to filenames
+# Possible values: always, auto, never
+hyperlink: auto
