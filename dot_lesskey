@@ -1,5 +1,5 @@
 #env
-LESS = -RF --redraw-on-quit --incsearch
+LESS = -RF --redraw-on-quit --incsearch --mouse
 LESS_LINES = -2
 
 #command
