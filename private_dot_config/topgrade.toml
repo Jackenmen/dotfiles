@@ -1,3 +1,4 @@
+[misc]
 # Don't ask for confirmations
 #assume_yes = true
 
@@ -39,9 +40,6 @@ disable = ["chezmoi", "nix", "pipx", "pip3"]
 
 # Skip sending a notification at the end of a run
 #skip_notify = true
-
-# Skip the preamble displayed when topgrade is run
-display_preamble = false
 
 [git]
 #max_concurrency = 5
