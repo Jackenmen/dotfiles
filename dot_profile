@@ -32,3 +32,11 @@ export STEAM_FRAME_FORCE_CLOSE=1
 
 # use user socket for Docker
 export DOCKER_HOST=unix:///run/user/$UID/podman/podman.sock
+
+# load profile files
+if [ -d ~/.profile.d ]; then
+  for i in ~/.profile.d/*.sh; do
+    . $i
+  done
+  unset i
+fi
