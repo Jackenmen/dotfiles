@@ -27,3 +27,7 @@ alias rm='echo "This is not the command you are looking for."; false'
 
 # run xdg-open in a process detached from current shell (to avoid seeing process's output)
 alias open='setsid xdg-open >> ~/.xsession-errors 2>> ~/.xsession-errors'
+
+if [ -d ~/.local/share/chezmoi-work ]; then
+    alias chezmoi-work='chezmoi -S ~/.local/share/chezmoi-work'
+fi
