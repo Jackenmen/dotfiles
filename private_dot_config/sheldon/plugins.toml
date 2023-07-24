@@ -36,6 +36,7 @@ apply = ["defer"]
 
 [plugins.zsh-edit]
 github = "marlonrichert/zsh-edit"
+rev = "fcddcbc5ac24643167d47bb34994e4e62a1dbe9e"
 
 [plugins.zsh-tab-title]
 github = "trystan2k/zsh-tab-title"
