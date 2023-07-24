@@ -23,6 +23,9 @@ defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}"
 [plugins.powerlevel10k]
 github = 'romkatv/powerlevel10k'
 
+[plugins.windows-terminal-zsh-integration]
+github = 'romkatv/windows-terminal-zsh-integration'
+
 [plugins.zsh-autosuggestions]
 github = 'zsh-users/zsh-autosuggestions'
 apply = ["defer"]
