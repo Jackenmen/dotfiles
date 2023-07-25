@@ -1,0 +1,31 @@
+#!/bin/bash
+TO_ADD='
+{
+    "[khotkeys]": {
+        "_k_friendly_name": "Custom Shortcuts Service",
+        "{139a067b-3215-43cd-ab3c-e66aa3730776}": "Ctrl+Alt+T,none,Launch kitty",
+        "{261d6862-dd43-43d0-a171-1acf4ee2979d}": "none,none,Launch Konsole",
+        "{7b30397b-6a30-4f97-a1dd-aa1c3348accf}": "Ctrl+Print,none,Take a screenshot of the active window",
+        "{b7fc67dd-7edc-410d-be5a-28da09046cbd}": "Print,none,Take a screenshot of a region",
+        "{d048cdb4-7f5f-4b66-8987-d4d50701958e}": "Ins,none,Disable Insert Key"
+    },
+    "[kwin]": {
+        "_k_friendly_name": "KWin",
+        "Window Above Other Windows": "Meta+Ctrl+T,,Keep Window Above Others",
+        "WindowGeometry": "Ctrl+Shift+F11,Ctrl+Shift+F11,Toggle window geometry display (effect only)"
+    },
+    "[org.kde.spectacle.desktop]": {
+        "_k_friendly_name": "Spectacle",
+        "ActiveWindowScreenShot": "none,Meta+Print,Capture Active Window",
+        "FullScreenScreenShot": "none,Shift+Print,Capture Entire Desktop",
+        "RectangularRegionScreenShot": "none,Meta+Shift+Print,Capture Rectangular Region",
+        "WindowUnderCursorScreenShot": "none,Meta+Ctrl+Print,Capture Window Under Cursor",
+        "_launch": "none,Print,Spectacle"
+    },
+    "[wacomtablet]": {
+        "_k_friendly_name": "Wacom Tablet",
+        "Toggle touch tool": "none,Meta+Ctrl+T,Enable/Disable the Touch Tool"
+    }
+}
+'
+{{ joinPath .chezmoi.sourceDir "lib/modify_ini_file.py" }} "$TO_ADD"
