@@ -27,14 +27,16 @@ fi
 # load rc files
 if [ -d ~/.shrc.d ]; then
   for i in ~/.shrc.d/*.sh; do
-    . $i
+    if [ -r "$i" ]; then
+      . "$i"
+    fi
   done
   unset i
 fi
 if [ -d ~/.bashrc.d ]; then
   for i in ~/.bashrc.d/*; do
-    if [[ "$i" =~ ^.+\.(ba)?sh$ && -r $i ]]; then
-      . $i
+    if [[ "$i" =~ ^.+\.(ba)?sh$ && -r "$i" ]]; then
+      . "$i"
     fi
   done
   unset i
