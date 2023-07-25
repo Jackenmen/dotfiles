@@ -1,0 +1,9 @@
+#!/bin/bash
+TO_ADD='
+{
+    "[Notifications]": {
+        "PopupPosition": "TopCenter"
+    }
+}
+'
+{{ joinPath .chezmoi.sourceDir "lib/modify_ini_file.py" }} "$TO_ADD"
