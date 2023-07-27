@@ -1,6 +1,6 @@
 # vim:fileencoding=utf-8:foldmethod=marker
 
-#: Fonts {{{
+#: Fonts {{"{{{"}}
 
 #: kitty has very powerful font management. You can configure
 #: individual font faces and even specify special fonts for particular
@@ -17,7 +17,7 @@ font_size 11.0
 
 #: }}}
 
-#: Cursor customization {{{
+#: Cursor customization {{"{{{"}}
 
 cursor #ff0018
 
@@ -38,7 +38,7 @@ cursor_shape block
 #: }}}
 
 
-#: Scrollback {{{
+#: Scrollback {{"{{{"}}
 
 scrollback_pager_history_size 50
 
@@ -56,7 +56,7 @@ scrollback_pager_history_size 50
 #: }}}
 
 
-#: Mouse {{{
+#: Mouse {{"{{{"}}
 
 url_color #ffffff
 url_style single
@@ -71,7 +71,7 @@ show_hyperlink_targets yes
 
 click_interval 0.15
 
-#: Mouse actions {{{
+#: Mouse actions {{"{{{"}}
 
 #: If you want to unmap an action map it to ``no-op``. For example, to
 #: disable opening of URLs with a plain click::
@@ -90,7 +90,7 @@ mouse_map right        release ungrabbed paste_from_selection
 #: }}}
 
 
-#: Window layout {{{
+#: Window layout {{"{{{"}}
 
 remember_window_size  no
 initial_window_width  100c
@@ -131,7 +131,7 @@ confirm_os_window_close 1
 #: }}}
 
 
-#: Color scheme {{{
+#: Color scheme {{"{{{"}}
 
 foreground #fffaf4
 background #0e1019
@@ -147,7 +147,7 @@ selection_background #9e9c9a
 
 #: The background for text selected with the mouse.
 
-#: The color table {{{
+#: The color table {{"{{{"}}
 
 #: The 256 terminal colors. There are 8 basic colors, each color has a
 #: dull and bright version, for the first 16 colors. You can set the
@@ -221,7 +221,7 @@ color15 #ffffff
 
 #: }}}
 
-#: Advanced {{{
+#: Advanced {{"{{{"}}
 
 allow_remote_control socket-only
 
@@ -263,15 +263,15 @@ shell_integration no-rc
 #: }}}
 
 
-#: Keyboard shortcuts {{{
+#: Keyboard shortcuts {{"{{{"}}
 
-#: Scrolling {{{
+#: Scrolling {{"{{{"}}
 
 map ctrl+shift+f combine : show_scrollback : send_text normal,application /
 
 #: }}}
 
-#: Tab management {{{
+#: Tab management {{"{{{"}}
 
 map kitty_mod+t     new_tab !neighbor
 map kitty_mod+d     new_tab_with_cwd !neighbor
@@ -279,3 +279,10 @@ map kitty_mod+d     new_tab_with_cwd !neighbor
 #: }}}
 
 #: }}}
+
+{{- if eq .chezmoi.os "linux" }}
+{{-   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+
+linux_display_server x11
+{{-   end -}}
+{{ end }}
