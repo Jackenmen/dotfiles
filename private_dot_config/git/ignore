@@ -13,3 +13,7 @@ venvs/
 
 # direnv configuration
 .envrc
+
+# ripgrep .ignore and .rgignore files
+.ignore
+.rgignore
