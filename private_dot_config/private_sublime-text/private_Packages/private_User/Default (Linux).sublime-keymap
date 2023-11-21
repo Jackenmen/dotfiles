@@ -4,4 +4,11 @@
     { "keys": ["ctrl+shift+tab"], "command": "prev_view" },
     { "keys": ["ctrl+alt+up"], "command": "select_lines", "args": {"forward": false} },
     { "keys": ["ctrl+alt+down"], "command": "select_lines", "args": {"forward": true} },
+    {
+        "keys": ["ctrl+."],
+        "command": "lsp_code_actions",
+        "context": [
+            {"key": "lsp.session_with_capability", "operand": "codeActionProvider"},
+        ],
+    }
 ]
