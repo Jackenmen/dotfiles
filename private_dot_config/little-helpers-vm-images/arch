@@ -1,0 +1,4 @@
+arch
+https://geo.mirror.pkgbuild.com/images/latest/Arch-Linux-x86_64-cloudimg.qcow2.SHA256
+sha256
+.*\.qcow2

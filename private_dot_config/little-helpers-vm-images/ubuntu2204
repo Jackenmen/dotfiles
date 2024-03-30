@@ -1,0 +1,4 @@
+ubuntu2204
+https://cloud-images.ubuntu.com/jammy/current/SHA256SUMS
+sha256
+jammy-server-cloudimg-amd64-disk-kvm\.img
